@@ -10,7 +10,7 @@ api = Api(app)
 comp_args = reqparse.RequestParser()
 comp_args.add_argument("comp_num", type=int, help="The 8 digit ID of the company")
 comp_args.add_argument(
-    "country", type=str, help="The Country of residence for the person (UPPERCASE)"
+    "country", type=str, help="The Country of residence for the person"
 )
 
 # In memory datastore - this should be replaced with a database and the data loaded ther.
@@ -76,11 +76,11 @@ class Country(Resource):
 
         Filters by country and passes dict to Flask (which will return JSON).
         """
-        result = data[data["country"] == country]
+        result = data[data["country"].str.upper() == country.upper()]
         if len(result) > 0:
             return {"success": "true", "result": result.to_dict("records")}
         else:
-            abort(404, message=f"Country {country} does not exist in the data")
+            abort(404, message=f"Country {country.upper()} does not exist in the data")
 
 
 class CountryList(Resource):
