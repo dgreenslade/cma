@@ -1,6 +1,6 @@
 # Part 3
 
-Sample FLASK app to serve officer data through an API to a technical audience.
+Sample Flask app to serve officer data through an API to a technical audience.
 
 
 ## Running the app
