@@ -36,11 +36,11 @@ docker run -it --name cma_officers-api -p 0.0.0.0:8000:8000/tcp cma_officers
 
 [http://localhost:8000/company](http://localhost:8000/company) - list of unique company numbers
 
-[http://localhost:8000/company/<company_number>](http://localhost:8000/company/88958775) - officers from a single commpany
+[http://localhost:8000/company/\<company_number>](http://localhost:8000/company/88958775) - officers from a single commpany
 
 [http://localhost:8000/country](http://localhost:8000/country) - list of unique countries
 
-[http://localhost:8000/country/<country>](http://localhost:8000/country/SCOTLAND) - officcers from a single country
+[http://localhost:8000/country/\<country>](http://localhost:8000/country/SCOTLAND) - officers from a single country
 
 
 ## Future improvements
