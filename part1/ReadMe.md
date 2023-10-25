@@ -22,6 +22,7 @@ python cma_officer.etl.py
 ## Solution:
 
 - Given that it is not tab separated, I have used specific positions to extract the first several elements, then separated the second sections with the `'<'` separator.  
+- Where the date of birth field was missing, there were additional spaces, I used regex to find correct the lines of these edge cases.
 - The solution returns a new CSV with the data parsed into a new file with timestamp.  The minor validation on through data types ensures a minimum standard.
 
 ### Resolved issues: 

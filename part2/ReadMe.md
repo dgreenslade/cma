@@ -4,7 +4,7 @@ The proposed infrastructure to run this ETL is displayed in this [diagram](#diag
 
 ## Overview
 
-The proposition involves using a Airflow in AWS (optionally the AWS hosted implementation).  DAG scripts will be run by the Airflow workers and do the following:
+The proposition involves using Airflow in AWS (optionally the AWS hosted implementation).  DAG scripts will be run by the Airflow workers and do the following:
 - download the static file to a cloud bucket (or local machine for dev purposes):
 - transform the file and place it into a new cloud bucket for processed data along with timestamps
 - read the latest transformed file and insert this data into a Stage table within a cloud Database, then compare the stage table to the Live table so records are marked for INSERT, UPDATE, DELETE.
@@ -21,8 +21,8 @@ The proposition involves using a Airflow in AWS (optionally the AWS hosted imple
 ## Disadvantages:
 
 - Airflow is a relatively complex solution for a simple pipeline - however the added benefits of scheduling, logging, notifications might outweigh this
-- Airflow needs to have the computational capacity for the Worker nodes to run the DAG scripts, if the data download is quite large, it might be more sensible to have serverless functions called/orchestrated by Airflow rather than having redundant processign capacity on the Airflow server at all times.
-- Currently the diagram holds staging tables and live tables within the same database - if the data being upserted is not large quantities, it might be simpler to run transactions to the live database directly 
+- Airflow needs to have the computational capacity for the Worker nodes to run the DAG scripts, if the data download is quite large, it might be more sensible to have serverless functions called/orchestrated by Airflow rather than having redundant processing capacity on the Airflow server at all times.
+- Currently, the diagram holds staging tables and live tables within the same database - if the data being upserted is not large quantities, it might be simpler to run transactions to the live database directly 
 
 
 ## Diagram
