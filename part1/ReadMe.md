@@ -4,7 +4,7 @@ ETL to load transform the [`officer_snapshot.txt`](./data_input/officer_snapshot
 
 The sample file [`officer_snapshot.txt`](./data_input/officer_snapshot.txt) is a mix of whitespace and character separated data.  
 
-The output is written to [`/data_output/`](./data_output/) as a time-stamped file: `officers_YYYYMMDD_HHMMSS.csv`
+The output is written to [`./data_output/`](./data_output/) as a time-stamped file: `officers_YYYYMMDD_HHMMSS.csv`
 
 ## Usage:
 
@@ -29,3 +29,4 @@ python cma_officer.etl.py
 
 ### Issues to resolve in the future:
 - Several values are found in incorrect fields, for example there appears to be a postcode in the `county` section of one record (e.g. `county = '75093' & town = 'TEXAS'`)  More advanced pattern matching might be able to identify this, however this would require a bit of research given that any country address is permissable and postcodes formats vary so much.
+- Geocoding is probably the best solution here - by matching these records against a good geocoding service and returning the address in a more standardised format
